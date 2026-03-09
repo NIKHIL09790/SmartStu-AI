@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { Route } from "next";
 import { usePathname } from "next/navigation";
 import { CalendarCheck, House, MessageSquare, Trophy, UserRound } from "lucide-react";
 
@@ -10,7 +11,7 @@ const tabs = [
   { href: "/chat", label: "Chat", icon: MessageSquare },
   { href: "/quiz", label: "Quiz", icon: Trophy },
   { href: "/auth", label: "Profile", icon: UserRound }
-];
+] satisfies { href: Route; label: string; icon: React.ComponentType<{ className?: string }> }[];
 
 export default function BottomNav() {
   const pathname = usePathname();
